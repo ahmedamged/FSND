@@ -1,8 +1,12 @@
 from sqlalchemy import Column, String, create_engine
 from flask_sqlalchemy import SQLAlchemy
+import os
 import json
 
 database_path = os.environ['DATABASE_URL']
+
+if not database_path:
+    print('DATABASE_URL nort found!')
 
 db = SQLAlchemy()
 
